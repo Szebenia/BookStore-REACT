@@ -8,14 +8,8 @@ function BookStore() {
 		.then((response) => response.json())
 		.then((books) => {
 			setBooks(books);
-			console.log("books : ", books);
+			// console.log("books : ", books);
 		});
-
-	// const downloadPosts = () => {
-	// 	fetch("https://jsonplaceholder.typicode.com/posts")
-	// 		.then((response) => response.json())
-	// 		.then((postsData) => setPosts(postsData));
-	// };
 
 	const inputRef = useRef(null);
 	const inputCheckboxRef = useRef(null);
