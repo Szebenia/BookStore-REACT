@@ -1,15 +1,18 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import BookStoreProvider from "./BookStoreProvider.jsx";
 import BookCard from "./BookCard.jsx";
 
 function BookStore() {
 	const [books, setBooks] = useState([]);
-	fetch("http://localhost:3000/books/")
-		.then((response) => response.json())
-		.then((books) => {
-			setBooks(books);
-			// console.log("books : ", books);
-		});
+
+	useEffect(() => {
+		fetch("http://localhost:3000/books/")
+			.then((response) => response.json())
+			.then((books) => {
+				setBooks(books);
+				console.log("books : ", books);
+			});
+	}, []);
 
 	const inputRef = useRef(null);
 	const inputCheckboxRef = useRef(null);
